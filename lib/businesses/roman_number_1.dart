@@ -22,7 +22,7 @@ class RomanNumber1 implements ICalculator {
     int times;
 
     if (num < num_min || num > num_max)
-      throw 'number exceed scope [$num_min,$num_max]';
+      throw 'number $num exceed scope [$num_min,$num_max]';
 
     for (var i = arrayNum.length - 1; i >= 0; i--) {
       times = (num / arrayNum[i]).floor();

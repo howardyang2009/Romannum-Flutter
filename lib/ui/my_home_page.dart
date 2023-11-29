@@ -20,6 +20,7 @@ class _MyHomePageState extends State<MyHomePage> {
   final num1Controller = TextEditingController();
   final num2Controller = TextEditingController();
   String sum = 'sum';
+  String sumError = '';
 
   Calculator? _calculator = Calculator.RomanNumber1;
 
@@ -116,8 +117,17 @@ class _MyHomePageState extends State<MyHomePage> {
                 SizedBox(
                   height: 16,
                 ),
-                Text(sum),
-                TextField(),
+                Text(
+                  sum,
+                  style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
+                ),
+                SizedBox(
+                  height: 16,
+                ),
+                Text(
+                  sumError,
+                  style: TextStyle(color: Colors.red, fontSize: 18),
+                ),
                 SizedBox(
                   height: 16,
                 ),
@@ -125,15 +135,21 @@ class _MyHomePageState extends State<MyHomePage> {
                   onPressed: () {
                     setState(() {
                       if (_formKey.currentState!.validate()) {
-                        var num1Str = num1Controller.text;
-                        var num2Str = num2Controller.text;
+                        try {
+                          sumError = '';
 
-                        var num1 = _calc?.str2num(num1Str);
-                        var num2 = _calc?.str2num(num2Str);
+                          var num1Str = num1Controller.text;
+                          var num2Str = num2Controller.text;
 
-                        var total = num1! + num2!;
+                          var num1 = _calc?.str2num(num1Str);
+                          var num2 = _calc?.str2num(num2Str);
 
-                        sum = _calc?.num2str(total) ?? '';
+                          var total = num1! + num2!;
+
+                          sum = _calc?.num2str(total) ?? '';
+                        } on String catch (ex) {
+                          sumError = ex;
+                        }
                       }
                     });
                   },

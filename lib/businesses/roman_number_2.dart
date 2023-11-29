@@ -24,7 +24,7 @@ class RomanNumber2 implements ICalculator {
   String num2str(int num) {
     String numeral = '';
     if (num < num_min || num > num_max)
-      throw 'number exceed scope [$num_min,$num_max]';
+      throw 'number $num exceed scope [$num_min,$num_max]';
 
     var digits = num.toString().split('');
 
