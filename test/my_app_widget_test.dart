@@ -10,6 +10,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:romannum_flutter/main.dart';
 
 void main() {
+  //IntegrationTestWidgetsFlutterBinding.ensureInitialized();
+
   testWidgets('Romannum Calculator I+II=III', (WidgetTester tester) async {
     // Build our app and trigger a frame.
     await tester.pumpWidget(const MyApp());
