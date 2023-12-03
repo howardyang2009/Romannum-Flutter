@@ -24,10 +24,10 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Calculator? _calculator = Calculator.RomanNumber1;
 
-  ICalculator _roman1calc = RomanNumber1();
-  ICalculator _roman2calc = RomanNumber2();
-  ICalculator _roman3calc = RomanNumber3();
-  ICalculator _romanExcalc = RomanNumberEx();
+  final ICalculator _roman1calc = RomanNumber1();
+  final ICalculator _roman2calc = RomanNumber2();
+  final ICalculator _roman3calc = RomanNumber3();
+  final ICalculator _romanExcalc = RomanNumberEx();
 
   ICalculator _calc = RomanNumber1();
 
@@ -84,7 +84,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     onChanged: setCalculator,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 16,
                 ),
                 TextFormField(
@@ -95,11 +95,11 @@ class _MyHomePageState extends State<MyHomePage> {
                   validator: num1Validator,
                   controller: num1Controller,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 16,
                 ),
-                Text('+'),
-                SizedBox(
+                const Text('+'),
+                const SizedBox(
                   height: 16,
                 ),
                 TextFormField(
@@ -110,25 +110,25 @@ class _MyHomePageState extends State<MyHomePage> {
                   validator: num2Validator,
                   controller: num2Controller,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 16,
                 ),
-                Text('-------------------------------------'),
-                SizedBox(
+                const Text('-------------------------------------'),
+                const SizedBox(
                   height: 16,
                 ),
                 Text(
                   sum,
-                  style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
+                  style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 16,
                 ),
                 Text(
                   sumError,
-                  style: TextStyle(color: Colors.red, fontSize: 18),
+                  style: const TextStyle(color: Colors.red, fontSize: 18),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 16,
                 ),
                 ElevatedButton(
@@ -141,12 +141,12 @@ class _MyHomePageState extends State<MyHomePage> {
                           var num1Str = num1Controller.text;
                           var num2Str = num2Controller.text;
 
-                          var num1 = _calc?.str2num(num1Str);
-                          var num2 = _calc?.str2num(num2Str);
+                          var num1 = _calc.str2num(num1Str);
+                          var num2 = _calc.str2num(num2Str);
 
-                          var total = num1! + num2!;
+                          var total = num1 + num2;
 
-                          sum = _calc?.num2str(total) ?? '';
+                          sum = _calc.num2str(total) ?? '';
                         } on String catch (ex) {
                           sumError = ex;
                         }
@@ -168,7 +168,7 @@ class _MyHomePageState extends State<MyHomePage> {
       return 'Please enter some text';
     }
     try {
-      var num1 = _calc?.str2num(num1Controller.text);
+      var num1 = _calc.str2num(num1Controller.text);
     } on String catch (ex) {
       return ex;
     }
@@ -180,7 +180,7 @@ class _MyHomePageState extends State<MyHomePage> {
       return 'Please enter some text';
     }
     try {
-      var num2 = _calc?.str2num(num2Controller.text);
+      var num2 = _calc.str2num(num2Controller.text);
     } on String catch (ex) {
       return ex;
     }

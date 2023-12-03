@@ -5,7 +5,7 @@ class RomanNumber3 extends RomanNumber1 implements ICalculator {
   @override
   int str2num(String input) {
     var str = input.trim();
-    if (str.length <= 0) throw 'empty is invalid';
+    if (str.isEmpty) throw 'empty is invalid';
 
     int tempIndex;
     String tempStr;
@@ -46,20 +46,23 @@ class RomanNumber3 extends RomanNumber1 implements ICalculator {
           }
 
           //99 is not IC, is XCIX
-          if (nextCharIndex > (currentCharIndex + 2))
+          if (nextCharIndex > (currentCharIndex + 2)) {
             throw 'the subtractive number just could be IX or IV style, for example: 99 is not IC, is XCIX';
+          }
 
           //for big roman number left
           if (i + 2 < str.length) {
             tempIndex = charIndex(str[i + 2]);
-            if (tempIndex >= nextCharIndex)
+            if (tempIndex >= nextCharIndex) {
               throw 'big roman number should be left, for example: CMM is invalid';
+            }
           }
 
           if (i + 3 < str.length) {
             tempIndex = charIndex(str[i + 3]);
-            if (tempIndex >= nextCharIndex)
+            if (tempIndex >= nextCharIndex) {
               throw 'big roman number should be left, for example: CMM is invalid';
+            }
           }
 
           num += char2num(nextChar) - char2num(currentChar);
