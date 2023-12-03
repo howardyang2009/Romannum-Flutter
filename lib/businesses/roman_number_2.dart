@@ -1,4 +1,4 @@
-import 'package:romannum_flutter/businesses/caculator.dart';
+import 'package:romannum_flutter/business_interfaces/caculator.dart';
 
 class RomanNumber2 implements ICalculator {
   var lookup = {

@@ -28,5 +28,9 @@ void main() {
 
     // Verify the sum is correct
     expect(find.text('III'), findsOneWidget);
+
+    final sumText =
+        tester.widget<Text>(find.byKey(const Key('sum'))).data ?? '';
+    expect(sumText, 'III');
   });
 }

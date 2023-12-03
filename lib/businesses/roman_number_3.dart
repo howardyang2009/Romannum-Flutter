@@ -1,4 +1,4 @@
-import 'package:romannum_flutter/businesses/caculator.dart';
+import 'package:romannum_flutter/business_interfaces/caculator.dart';
 import 'package:romannum_flutter/businesses/roman_number_1.dart';
 
 class RomanNumber3 extends RomanNumber1 implements ICalculator {
@@ -29,6 +29,7 @@ class RomanNumber3 extends RomanNumber1 implements ICalculator {
         nextCharIndex = charIndex(nextChar);
         if (nextCharIndex < currentCharIndex) {
           num += char2num(currentChar) * (sameLetter + 1);
+          sameLetter = 0;
         } else if (nextCharIndex > currentCharIndex) {
           //for IIV
           if (sameLetter >= 1) {

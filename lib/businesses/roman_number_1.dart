@@ -1,4 +1,4 @@
-import 'package:romannum_flutter/businesses/caculator.dart';
+import 'package:romannum_flutter/business_interfaces/caculator.dart';
 
 class RomanNumber1 implements ICalculator {
   var arrayNum = [1, 5, 10, 50, 100, 500, 1000];
