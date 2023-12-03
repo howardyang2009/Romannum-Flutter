@@ -88,6 +88,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   height: 16,
                 ),
                 TextFormField(
+                  key: const Key('num1'),
                   decoration: const InputDecoration(
                     border: UnderlineInputBorder(),
                     labelText: 'Enter your Roman number 1',
@@ -103,6 +104,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   height: 16,
                 ),
                 TextFormField(
+                  key: const Key('num2'),
                   decoration: const InputDecoration(
                     border: UnderlineInputBorder(),
                     labelText: 'Enter your Roman number 2',
@@ -118,8 +120,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   height: 16,
                 ),
                 Text(
+                  key: const Key('sum'),
                   sum,
-                  style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
+                  style: const TextStyle(
+                      fontWeight: FontWeight.w700, fontSize: 18),
                 ),
                 const SizedBox(
                   height: 16,
